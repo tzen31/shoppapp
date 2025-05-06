@@ -1,0 +1,28 @@
+
+  <div class="product-item" (click)="handleClickProduct(product)">
+
+    <div class="product-image" [routerLink]="['/product', product?.slug]">
+      <img [src]="product ? product.imageUrl[0] : ''"
+          height="540"
+          width="400"
+          [alt]="product?.name"/>
+    </div>
+
+    <div class="product-details flex-1">
+      <div class="product-name">
+        <h2>{{ product?.name?.substring(0,50) }} {{ product && product.name[41] ? "..." : '' }}</h2>
+      </div>
+      <div class="product-price flex-1">
+        <h3>€ {{ (product?.sold_price || 0)/100 }} </h3><del><h3>€ {{ (product?.regular_price || 0) /100 }}</h3></del>
+        <h6 class="red">-{{ (1 - (product?.sold_price || 0) / (product?.regular_price || 0)) * 100 | number:'1.0-0' }}%</h6>
+      </div>
+       <div class="product-action-button flex gap-5 jcc">
+        <!--<button class="btn" [routerLink]="['product', product?.slug]">
+          All details
+        </button>-->
+        <button class="btn" (click)="handleClickProduct(product)">Quick view</button>
+      </div>
+    </div>
+
+  </div>
+

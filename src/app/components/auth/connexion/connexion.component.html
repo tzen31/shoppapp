@@ -1,0 +1,46 @@
+<div class="signin">
+  <div class="form-container">
+    <form action="" [formGroup]="signinForm">
+      <h2>Connection</h2>
+      <p class="tc">Vous n'avez pas de compte ? Cliquez pour vous <a routerLink="/signin">enregistrer</a></p>
+      <div class="form-line flex gap-10 wrap">
+        <div class="form-line flex">
+          <input width="400px" class="flex-1" type="email" [formControl]="email"
+                name="email"
+                placeholder="Your email"
+                [(ngModel)]="user.email"/>
+        </div>
+        <div class="error" *ngIf="email.dirty && !email.valid">
+          <p *ngIf="email.hasError('required')">
+            L'email est requis !
+          </p>
+          <p *ngIf="email.hasError('email')">
+            L'email ne respecte pas le bon format
+          </p>
+        </div>
+
+        <div class="form-line flex">
+          <input class="flex-1" type="password" [formControl]="password"
+                name="password"
+                placeholder="Your password please"
+                [(ngModel)]="user.password"/>
+        </div>
+        <div class="error" *ngIf="password.dirty && !password.valid">
+          <p *ngIf="password.hasError('required')">
+            Le password est requis !
+          </p>
+          <p *ngIf="!password.hasError('minLength')">
+            Le mot de passe doit contenir au moins 6 caractères
+          </p>
+        </div>
+      </div>
+
+      <div class="button flex">
+        <button class="btn flex-1 aic" [disabled]="!this.signinForm.valid" (click)="handleSubmit()">Se connecter</button>
+      </div>
+      <p>
+        <!-- {{ user | json }} -->
+      </p>
+    </form>
+  </div>
+<div>

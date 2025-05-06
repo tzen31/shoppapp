@@ -1,0 +1,53 @@
+{
+  "isSuccess": true,
+  "statusCode": 200,
+  "length": 8,
+  "results": [
+    {
+      "_id": 1,
+      "name": "Jupes",
+      "created_at": "2023-10-01T12:00:00Z",
+      "updated_at": "2023-10-01T12:00:00Z",
+      "slug": "jupes",
+      "author": "Espero A."
+    },
+    {
+      "id": 2,
+      "name": "Pantalons",
+      "created_at": "2023-10-01T12:00:00Z",
+      "updated_at": "2023-10-01T12:00:00Z",
+      "slug": "pantalons",
+      "author": "Espero A."
+    },
+    {
+      "id": 3,
+      "name": "Robes",
+      "created_at": "2023-10-01T12:00:00Z",
+      "updated_at": "2023-10-01T12:00:00Z",
+      "slug": "robes",
+      "author": "Espero A."
+    },
+    {
+      "id": 4,
+      "name": "Pulls",
+      "created_at": "2023-10-01T12:00:00Z",
+      "updated_at": "2023-10-01T12:00:00Z",
+      "slug": "pulls",
+      "author": "Espero A."
+    },
+    {
+      "id": 5,
+      "name": "Shorts",
+      "created_at": "2023-10-01T12:00:00Z",
+      "updated_at": "2023-10-01T12:00:00Z",
+      "slug": "shorts",
+      "author": "Espero A."
+    },
+    {
+      "id": 6,
+      "name": "T-shirts",
+      "description": "Fun and educational toys",
+      "imageUrl": "https://example.com/images/toys_games.jpg"
+    }
+  ]
+}

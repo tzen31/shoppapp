@@ -1,0 +1,80 @@
+<app-page-title title="Contact Us"></app-page-title>
+<div class="contact-container content">
+    <form action="" method="post" [formGroup]="contactForm">
+        <div class="form-line flex gap-10">
+          <input type="text" 
+           name="firstname" id="firstname"
+           class="flex-1" placeholder="Your firstname" 
+           [formControl]="firstname"
+           />
+           <div class="error" *ngIf="firstname.dirty && !firstname.valid">
+            <p *ngIf="firstname.hasError('required')">
+              Le prénom est requis !
+            </p>
+            <p *ngIf="!firstname.hasError('required')">
+              Le prénom doit faire au moins 3 caractères !
+            </p>
+          </div>
+          <input type="text" name="email" id="email" 
+          class="flex-1" placeholder="Your email"
+          [formControl]="email"
+          />
+          <div class="error" *ngIf="email.dirty && !email.valid">
+            <p *ngIf="email.hasError('required')">
+              L'email est requis !
+            </p>
+            <p *ngIf="email.hasError('email')">
+              L'email est invalide !
+            </p>
+          </div>
+        </div>
+        <div class="form-line flex  gap-10">
+          <input type="tel" name="phone" id="phone" 
+          placeholder="Your phone" 
+          [formControl]="phone"
+          />
+          <div class="error" *ngIf="email.dirty && !email.valid">
+            <p *ngIf="phone.hasError('required')">
+              Le téléphone est requis !
+            </p>
+            <p *ngIf="phone.hasError('minlength')">
+              Le téléphone doit avoir au moins 5 caractères !
+            </p>
+         </div>
+          <input type="text" name="subject" 
+          id="subject" placeholder="Your subject"
+          [formControl]="subject"
+          />
+          <div class="error" *ngIf="email.dirty && !email.valid">
+            <p *ngIf="subject.hasError('required')">
+              Le sujet est requis !
+            </p>
+            <p *ngIf="subject.hasError('minlength')">
+              Le sujet doit avoir au moins 10 caractères !
+            </p>
+         </div>
+        </div>
+
+        <div class="form-textarea flex">
+          <textarea 
+          [formControl]="message"
+          name="message" id="message" cols="30" rows="10"  class="flex-1" placeholder="Your message"></textarea>
+          <div class="error" *ngIf="email.dirty && !email.valid">
+            <p *ngIf="message.hasError('required')">
+              Le message est requis !
+            </p>
+            <p *ngIf="message.hasError('minlength')">
+              Le message doit avoir au moins 20 caractères !
+            </p>
+         </div>
+        </div>
+
+
+      <div class="button flex">
+        <button class="btn flex-1 aic" 
+        [disabled]="!contactForm.valid"
+        (click)="handleSubmit()">Send message</button>
+      </div>
+
+    </form>
+<div>

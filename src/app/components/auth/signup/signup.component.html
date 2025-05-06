@@ -1,0 +1,28 @@
+<div class="signup signin">
+  <div class="form-inline firstname">
+    <input
+     type="text"
+     name="firstname"
+     placeholder="your name ..."
+     [(ngModel)]="firstname"
+     />
+    <button class="btn" (click)="handleSave()">Save</button>
+  </div>
+
+  <div class="names">
+    <strong>Firstname : </strong>  {{ firstname }}<br>
+  </div>
+  <div class="names">
+    <ul *ngFor="let name of names; let index = index">
+      <li class="flex aic">{{ name }}
+        <div class="name-action">
+          <button class="btn" (click)="handleUpdate(index)">Update</button>
+          <button class="btn" (click)="handleDelete(index)">Delete</button>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+

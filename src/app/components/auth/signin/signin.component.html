@@ -1,0 +1,66 @@
+<div class="signin">
+  <div class="form-container">
+    <form action="" [formGroup]="inscriptionForm">
+      <h2>Inscription</h2>
+      <p class="tc">Déjà inscrit ? Cliquez pour vous <a routerLink="/connexion">connecter</a></p>
+      <div class="form-line flex gap-10 wrap">
+        <input class="flex-1" type="text" name="firstname" [formControl]="firstname"
+              placeholder="Your firstname"
+              [(ngModel)]="user.firstname"/>
+
+        <input class="flex-1" type="text" name="lastname" [formControl]="lastname"
+               placeholder="Your lastname"
+               [(ngModel)]="user.lastname"/>
+      </div>
+
+      <div class="form-line flex">
+        <input class="flex-1" type="email" name="email" [formControl]="email"
+               placeholder="Your email"
+               [(ngModel)]="user.email"/>
+      </div>
+      <div class="error" *ngIf="email.dirty && !email.valid">
+        <p *ngIf="email.hasError('required')">
+          L'email est requis !
+        </p>
+        <p *ngIf="email.hasError('email')">
+          L'email ne respecte pas le bon format
+        </p>
+      </div>
+
+      <div class="form-line flex">
+        <input class="flex-1" type="password" name="password" [formControl]="password"
+               placeholder="Your password please"
+               [(ngModel)]="user.password"/>
+      </div>
+      <div class="error" *ngIf="password.dirty && !password.valid">
+        <p *ngIf="password.hasError('required')">
+          Le password est requis !
+        </p>
+        <p *ngIf="!password.hasError('minLength')">
+          Le mot de passe doit contenir au moins 6 caractères
+        </p>
+      </div>
+
+    <div class="form-line flex">
+      <input class="flex-1" type="password" name="passwordConfirm" [formControl]="passwordConfirm"
+             placeholder="Confirm your password please"
+      />
+    </div>
+    <div class="error" *ngIf="password.dirty && !passwordConfirm.valid">
+      <p *ngIf="passwordConfirm.hasError('required')">
+        La confirmation du mot de passe est requise !
+      </p>
+      <p *ngIf="!passwordConfirm.hasError('minLength')">
+        Le mot de passe doit contenir au moins 6 caractères
+      </p>
+    </div>
+
+    <div class="button flex">
+      <button class="btnflex-1" [disabled]="!this.inscriptionForm.valid && (this.password != this.passwordConfirm)" (click)="handleSubmit()">S'inscrire</button>
+    </div>
+    <p>
+      <!-- {{ user | json }} -->
+    </p>
+    </form>
+  </div>
+<div>

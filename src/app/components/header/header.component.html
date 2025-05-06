@@ -1,0 +1,24 @@
+<header>
+
+  <div class="bars none"
+  (click)="handleDisplayMobileNav()"
+  (mouseenter)="handleDisplayMobileNav()"
+  >
+      <img src="/assets/images/icons/bars.png" click="handleClickMenu()" alt=""/>
+  </div>
+  <div class="logo">
+    <a routerLink="">{{ siteName }}</a>
+  </div>
+  <div class="navbar">
+    <ul>
+      <li *ngFor="let item of navs_data"><a [routerLink]="item?.path">{{ item?.name }}</a></li>
+      <li *ngFor="let item of auths_data"><a [routerLink]="item?.path" class="btn">{{ item?.name }}</a></li>
+      <!-- <li><a href="#">{{ data }}</a></li>
+      <li><a href="#">{{ second }} secondes</a></li> -->
+    </ul>
+  </div>
+
+</header>
+<app-aside-nav
+(close)="handleCloseMobileNav()"
+*ngIf="isDisplayMobileNav"></app-aside-nav>
